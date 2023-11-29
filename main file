@@ -22,16 +22,25 @@ def play_game():
     print(f"Player Wins \n {player1_picks} vs {computer_picks}")
   elif player1_picks == "Paper" and computer_picks == "Rock":
     print(f"Player Wins \n {player1_picks} vs {computer_picks}")
-  else: 
+  else:
     print(f" Computer Wins \n {computer_picks} vs Player: {player1_picks}")
     
+      
     
     
+#loop asking to continue playing
+while True:
+  user_responds = input("Do you want to Play Yes or No? ") 
+  if user_responds == "Yes" or user_responds == "y":
+    play_game()
+  else:
+    break
+
+
+  
 
 
 
-
-play_game()
   
 
 
