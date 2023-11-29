@@ -34,7 +34,7 @@ while True:
   if user_responds == "Yes" or user_responds == "y":
     play_game()
   else:
-    print(f"Thank you for playing")
+    print("Thank you for playing")
     break
 
 
