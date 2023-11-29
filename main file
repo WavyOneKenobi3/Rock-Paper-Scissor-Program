@@ -7,18 +7,31 @@ player1_picks = None
 #computer random selection
 computer_picks = random.choice(selections)
 
-#player input for selection 
-player1_picks = input("Please select between Rock, Paper and Scissors: ")
-#capitalize answer and store value
-player1_picks = player1_picks.capitalize()
- #Gameplay loop
-if player1_picks == computer_picks:
-  print(f"Draw \n Player: {player1_picks} vs  Computer: {computer_picks}")
-elif player1_picks == "Rock" and computer_picks == "Scissors":
-  print(f"Player Wins \n {player1_picks} vs {computer_picks}")
-elif player1_picks == "Scissors" and computer_picks == "Paper":
-  print(f"Player Wins \n {player1_picks} vs {computer_picks}")
-elif player1_picks == "Paper" and computer_picks == "Rock":
-  print(f"Player Wins \n {player1_picks} vs {computer_picks}")
-else: 
-  print(f" Computer Wins \n {computer_picks} vs Player: {player1_picks}")
+
+#Function for game
+def play_game():
+  #player input for selection 
+  player1_picks = input("Please select between Rock, Paper and Scissors: ")
+  #capitalize answer and store value
+  player1_picks = player1_picks.capitalize()
+  if player1_picks == computer_picks:
+    print(f"Draw \n Player: {player1_picks} vs  Computer: {computer_picks}")
+  elif player1_picks == "Rock" and computer_picks == "Scissors":
+    print(f"Player Wins \n {player1_picks} vs {computer_picks}")
+  elif player1_picks == "Scissors" and computer_picks == "Paper":
+    print(f"Player Wins \n {player1_picks} vs {computer_picks}")
+  elif player1_picks == "Paper" and computer_picks == "Rock":
+    print(f"Player Wins \n {player1_picks} vs {computer_picks}")
+  else: 
+    print(f" Computer Wins \n {computer_picks} vs Player: {player1_picks}")
+    
+    
+    
+
+
+
+
+play_game()
+  
+
+
