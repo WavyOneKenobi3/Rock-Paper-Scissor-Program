@@ -16,11 +16,7 @@ def play_game():
   player1_picks = player1_picks.capitalize()
   if player1_picks == computer_picks:
     print(f"Draw \n Player: {player1_picks} vs  Computer: {computer_picks}")
-  elif player1_picks == "Rock" and computer_picks == "Scissors":
-    print(f"Player Wins \n {player1_picks} vs {computer_picks}")
-  elif player1_picks == "Scissors" and computer_picks == "Paper":
-    print(f"Player Wins \n {player1_picks} vs {computer_picks}")
-  elif player1_picks == "Paper" and computer_picks == "Rock":
+  elif (player1_picks == "Rock" and computer_picks == "Scissors") or (player1_picks == "Scissors" and computer_picks == "Paper") or (player1_picks == "Paper" and computer_picks == "Rock"):
     print(f"Player Wins \n {player1_picks} vs {computer_picks}")
   else:
     print(f" Computer Wins \n {computer_picks} vs Player: {player1_picks}")
@@ -31,7 +27,7 @@ def play_game():
 #loop asking to continue playing
 while True:
   user_responds = input("Do you want to Play Yes or No? ") 
-  if user_responds == "Yes" or user_responds == "y":
+  if user_responds == "Yes" or user_responds == "y" or user_responds == "yes":
     play_game()
   else:
     print("Thank you for playing")
