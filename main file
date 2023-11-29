@@ -13,12 +13,12 @@ player1_picks = input("Please select between Rock, Paper and Scissors: ")
 player1_picks = player1_picks.capitalize()
  #Gameplay loop
 if player1_picks == computer_picks:
-  print("Draw \n","Player:",player1_picks, "vs ","Computer:",computer_picks)
+  print(f"Draw \n Player: {player1_picks} vs  Computer: {computer_picks}")
 elif player1_picks == "Rock" and computer_picks == "Scissors":
-  print("Player Wins \n ",player1_picks , "vs", computer_picks)
+  print(f"Player Wins \n {player1_picks} vs {computer_picks}")
 elif player1_picks == "Scissors" and computer_picks == "Paper":
-  print("Player Wins \n ",player1_picks , "vs", computer_picks)
+  print(f"Player Wins \n {player1_picks} vs {computer_picks}")
 elif player1_picks == "Paper" and computer_picks == "Rock":
-  print("Player Wins \n",player1_picks , "vs", computer_picks)
+  print(f"Player Wins \n {player1_picks} vs {computer_picks}")
 else: 
-  print("Computer Wins \n",computer_picks,"vs","Player:",player1_picks)
+  print(f" Computer Wins \n {computer_picks} vs Player: {player1_picks}")
