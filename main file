@@ -2,36 +2,38 @@ import random
 
 #list of choices 
 selections = ["Rock", "Paper", "Scissors"]
-#player choice
-player1_picks = None
 #computer random selection
 computer_picks = random.choice(selections)
+play_game = True
+
+#player input for selection
+def selection_player(): 
+  user_picks = input("Please select between Rock, Paper and Scissors: ").capitalize()
+  while user_picks not in selections:
+    print("Not one of the selection, select again")
+    user_picks = input("Please select between Rock, Paper and Scissors: ").capitalize()
+  else:
+    return user_picks
 
 
-#Function for game
-def play_game():
-  #player input for selection 
-  player1_picks = input("Please select between Rock, Paper and Scissors: ")
-  #capitalize answer and store value
-  player1_picks = player1_picks.capitalize()
+def rules_game():
+  player1_picks = selection_player()
   if player1_picks == computer_picks:
     print(f"Draw \n Player: {player1_picks} vs  Computer: {computer_picks}")
-  elif player1_picks == "Rock" and computer_picks == "Scissors":
+  elif (player1_picks == "Rock" and computer_picks == "Scissors") or (player1_picks == "Scissors" and computer_picks == "Paper") or (player1_picks == "Paper" and computer_picks == "Rock"):
     print(f"Player Wins \n {player1_picks} vs {computer_picks}")
-  elif player1_picks == "Scissors" and computer_picks == "Paper":
-    print(f"Player Wins \n {player1_picks} vs {computer_picks}")
-  elif player1_picks == "Paper" and computer_picks == "Rock":
-    print(f"Player Wins \n {player1_picks} vs {computer_picks}")
-  else: 
-    print(f" Computer Wins \n {computer_picks} vs Player: {player1_picks}")
+  else:
+    print(f" Computer Wins \n Computer: {computer_picks} vs Player: {player1_picks}")
+
+
     
     
-    
-
-
-
-
-play_game()
-  
-
-
+#loop asking to continue playing
+while play_game == True:
+  rules_game()
+  user_responds = input("Do you want to Play Yes or No? ") 
+  if user_responds == "Yes" or user_responds == "y" or user_responds == "yes":
+    rules_game()
+  else:
+    print("Thank you for playing")
+    break
