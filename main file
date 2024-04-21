@@ -1,39 +1,52 @@
 import random
+import tkinter
+from tkinter import *
+from tkinter import ttk
 
-#list of choices 
-selections = ["Rock", "Paper", "Scissors"]
-#computer random selection
-computer_picks = random.choice(selections)
-play_game = True
-
-#player input for selection
-def selection_player(): 
-  user_picks = input("Please select between Rock, Paper and Scissors: ").capitalize()
-  while user_picks not in selections:
-    print("Not one of the selection, select again")
-    user_picks = input("Please select between Rock, Paper and Scissors: ").capitalize()
-  else:
-    return user_picks
+# list of choices
+selections = ["Rock", "Paper", "Scrissors"]
 
 
-def rules_game():
-  player1_picks = selection_player()
-  if player1_picks == computer_picks:
-    print(f"Draw \n Player: {player1_picks} vs  Computer: {computer_picks}")
-  elif (player1_picks == "Rock" and computer_picks == "Scissors") or (player1_picks == "Scissors" and computer_picks == "Paper") or (player1_picks == "Paper" and computer_picks == "Rock"):
-    print(f"Player Wins \n {player1_picks} vs {computer_picks}")
-  else:
-    print(f" Computer Wins \n Computer: {computer_picks} vs Player: {player1_picks}")
+def button_clicked(player1_picks):
+    # computer random selection
+    computer_picks = random.choice(selections)
+
+    if player1_picks == computer_picks:
+        print(f"\t\tDraw \n\nPlayer: {player1_picks}\nComputer: {computer_picks}")
+    elif (player1_picks == "Rock" and computer_picks == "Scissors") or (
+            player1_picks == "Scissors" and computer_picks == "Paper") or (
+            player1_picks == "Paper" and computer_picks == "Rock"):
+        print(f"\t\tPlayer Wins \n\nPlayer: {player1_picks}\nComputer: {computer_picks}")
+    else:
+        print(f"\t\tComputer Wins \n\nComputer: {computer_picks}\nPlayer: {player1_picks}")
 
 
-    
-    
-#loop asking to continue playing
-while play_game == True:
-  rules_game()
-  user_responds = input("Do you want to Play Yes or No? ") 
-  if user_responds == "Yes" or user_responds == "y" or user_responds == "yes":
-    rules_game()
-  else:
-    print("Thank you for playing")
-    break
+
+
+#making main GUI window for game
+root = Tk()
+root.title("Rock, Paper, Scrissors")
+frrm = ttk.Frame(root, padding=20)
+frrm .grid()
+ttk.Label(frrm, text="Please make a selection").grid(column =2, row = 0)
+
+#result_text = tkinter.StringVar()
+#result_label = tkinter.Label(frrm, textvariable=result_text)
+
+rock_button = ttk.Button(frrm, text="Rock", command= lambda :button_clicked("Rock")).grid(column=1, row=1)
+paper_button = ttk.Button(frrm, text="Paper", command=lambda :button_clicked("Paper")).grid(column=2, row=1)
+scrissors_Button = ttk.Button(frrm, text="Scissors", command= lambda :button_clicked("Scrissors")).grid(column=3, row=1)
+
+
+#quit button
+ttk.Button(frrm, text="Quit", command=root.destroy).grid(column=2, row=3)
+
+
+root.mainloop()
+
+
+
+
+
+
+
