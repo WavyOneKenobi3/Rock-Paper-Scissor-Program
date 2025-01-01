@@ -23,7 +23,7 @@ def rules_game():
   elif (player1_picks == "Rock" and computer_picks == "Scissors") or (player1_picks == "Scissors" and computer_picks == "Paper") or (player1_picks == "Paper" and computer_picks == "Rock"):
     print(f"Player Wins \n {player1_picks} vs {computer_picks}")
   else:
-    print(f" Computer Wins \n Computer: {computer_picks} vs Player: {player1_picks}")
+    print(f" Computer Wins \n Computer: {computer_picks} vs\nPlayer: {player1_picks}")
 
 
     
@@ -31,9 +31,13 @@ def rules_game():
 #loop asking to continue playing
 while play_game == True:
   rules_game()
-  user_responds = input("Do you want to Play Yes or No? ") 
+  
+  user_responds = input("\n Do you want to Play Yes or No? ") 
   if user_responds == "Yes" or user_responds == "y" or user_responds == "yes":
-    rules_game()
-  else:
-    print("Thank you for playing")
+    continue
+  elif user_responds == "NO" or user_responds == "n" or user_responds == "no":
+    print("\n Thank you for playing")
     break
+  else:
+    print("not a selection")
+    
