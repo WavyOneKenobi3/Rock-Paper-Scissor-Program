@@ -3,38 +3,47 @@ import random
 #list of choices 
   selections = ["Rock", "Paper", "Scissors"]
 
+Winning_picks = {
+  "Rock":"Scissors",
+  "Paper":"Rock",
+  "Scissors":"Paper"
+}
+
 
 
 #player input for selection
-def selection_player(): 
-  user_picks = input("Please select between Rock, Paper and Scissors: ").capitalize()
-  while user_picks not in selections:
-    print("Not one of the selection, select again")
-    user_picks = input("Please select between Rock, Paper and Scissors: ").capitalize()
-  return user_picks
+def get_player_choice():
+    While True:
+      user_picks = input("Please select between Rock, Paper and Scissors: ").strip().capitalize()
+      if user_picks in selec
+      return user_picks
 
 
-def rules_game():
-  #computer random selection
-  computer_picks = random.choice(selections)
-  # Get player's selection
-  player1_picks = selection_player()
-  
-  if player1_picks == computer_picks:
-    print(f"Draw \n Player: {player1_picks} vs  Computer: {computer_picks}")
-  elif (player1_picks == "Rock" and computer_picks == "Scissors") or (player1_picks == "Scissors" and computer_picks == "Paper") or (player1_picks == "Paper" and computer_picks == "Rock"):
-    print(f"Player Wins \n {player1_picks} vs {computer_picks}")
+def determine_winner(player_choice, computer_choice):
+  if player_choice == computer_choice:
+    return "Draw"
+  elif  Winning_picks[player_choice] == computer_choice:                        #statement is comparing answers and if its true or false
+    return "Player Wins"
   else:
-    print(f" Computer Wins \n Computer: {computer_picks} vs\nPlayer: {player1_picks}")
+    return "Computer Wins"
 
+def play_round():
+  #computer random selection
+  computer_choice = random.choice(selections)
+  # Get player's selection
+  player1_picks = get_player_choice()
+  #
+  result = determine_winner(player1_picks, computer_choice)
 
+  # Display the result    
+  print(f"\n{result}!\nPlayer: {player1_picks} vs Computer: {computer_choice}")
     
 def play_game(): 
   #loop asking to continue playing
   while True:
-    rules_game()
-    
-    user_responds = input("\n Do you want to Play Yes or No? ").strip().lower()
+    play_round()
+ 
+    play_again = input("\n Do you want to Play Yes or No? ").strip().lower()
     
     if user_responds == "yes":
       continue
