@@ -13,11 +13,12 @@ Winning_picks = {
 
 #player input for selection
 def get_player_choice():
-    While True:
+    while True:
       user_picks = input("Please select between Rock, Paper and Scissors: ").strip().capitalize()
-      if user_picks in selec
-      return user_picks
-
+      if user_picks in selections:
+        return user_picks
+      else:
+          print(f"Invalid choice. Try again. ")
 
 def determine_winner(player_choice, computer_choice):
   if player_choice == computer_choice:
